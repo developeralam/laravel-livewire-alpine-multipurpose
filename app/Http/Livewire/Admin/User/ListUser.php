@@ -12,12 +12,14 @@ class ListUser extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
     public $state = [];
+    public $showEditModal = false;
+    public $user;
     //Add User
     public function addUser()
     {
+        $this->showEditModal = false;
         $this->state = [];
-        $id = 'add-user';
-        $this->dispatchBrowserEvent('show-form', ['id' => $id]);
+        $this->dispatchBrowserEvent('show-form', ['id' => 'add-user']);
     }
     //Create User
     public function createUser()
@@ -31,20 +33,42 @@ class ListUser extends Component
         User::create($data);
         $id = "add-user";
         $this->dispatchBrowserEvent('close-form', ['id' => $id]);
+        $this->dispatchBrowserEvent('success-msg', ['msg' => 'User Added Successfully']);
     }
     //Edit user
-    public function editUser()
+    public function editUser(User $user)
     {
+        $this->user = $user;
+        $this->showEditModal = true;
+        $this->state = $user->toArray();
+        $this->dispatchBrowserEvent('show-form', ['id' => 'add-user']);
     }
     //Update user
     public function updateUser()
     {
-        # code...
+        $data = Validator::make($this->state, [
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email,'.$this->user->id,
+            'password' => 'sometimes|confirmed',
+        ])->validate();
+        if(!empty($data['password'])){
+            $data['password'] = bcrypt($data['password']);
+        }
+        $this->user->update($data);
+        $this->dispatchBrowserEvent('close-form', ['id' =>'add-user']);
+        $this->dispatchBrowserEvent('success-msg', ['msg' => 'User Updated Successfully']);
+    }
+    public function showDeleteModal(User $user)
+    {
+        $this->dispatchBrowserEvent('show-form', ['id' => 'dlt-modal']);
+        $this->user = $user;
     }
     //Delete User
     public function deleteUser()
     {
-        # code...
+        $this->user->delete();
+        $this->dispatchBrowserEvent('close-form', ['id' => 'dlt-modal']);
+        $this->dispatchBrowserEvent('success-msg', ['msg' => 'User Deleted Successfully']);
     }
     public function render()
     {
