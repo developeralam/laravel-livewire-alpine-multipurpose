@@ -60,9 +60,11 @@
                                 </td>
                             </tr>
                             @endforeach
-                            {{ $users->links() }}
                         </tbody>
                     </table>
+                </div>
+                <div class="card-footer">
+                    {{ $users->links() }}
                 </div>
             </div>
 
