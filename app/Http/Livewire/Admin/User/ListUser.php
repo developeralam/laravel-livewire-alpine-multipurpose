@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin\User;
 use App\Models\User;
+use Illuminate\Support\Facades\Validator;
 use App\Http\Livewire\Admin\AdminComponent;
 
 class ListUser extends AdminComponent

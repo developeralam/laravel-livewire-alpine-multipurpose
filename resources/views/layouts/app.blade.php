@@ -21,6 +21,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 asset('backend/plugins/fontawesome-free/css/all.min.css')
             }}"
         />
+        <link rel="stylesheet" href="{{asset('backend/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')
+                        }}">
         <!-- Theme style -->
         <link
             rel="stylesheet"
@@ -75,6 +77,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <script src="{{
                 asset('backend/plugins/bootstrap/js/bootstrap.bundle.min.js')
             }}"></script>
+            <!-- Moment js -->
+            <script src="{{
+                                        asset('backend/plugins/moment/moment.min.js')
+                                    }}"></script>
+            <!-- Date Time picker 4 -->
+            <script src="{{asset('backend/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')
+                        }}"></script>
         <!-- AdminLTE App -->
         <script src="{{ asset('backend/dist/js/adminlte.min.js') }}"></script>
         {{-- Toastr --}}
@@ -102,6 +111,28 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 window.addEventListener("success-msg", (event) => {
                     toastr.success(event.detail.msg, "Success!");
                 });
+
+
+                // Tempusdominus
+                $('#datetimepicker4').datetimepicker({
+                format: 'L'
+                });
+
+                $('#datetimepicker3').datetimepicker({
+                format: 'LT'
+                });
+
+                //setup date time picker
+                $("#datetimepicker4").on("change.datetimepicker", function(e){
+                    let date = $(this).data('appointmentdate');
+                    eval(date).set('state.date', $('#appointmentDateInput').val());
+                });
+                $('#datetimepicker3').on("change.datetimepicker", function(e){
+                    let time = $(this).data('appointmenttime');
+                    eval(time).set('state.time', $('#appointmentTimeInput').val());
+                })
+
+                
             });
         </script>
     </body>

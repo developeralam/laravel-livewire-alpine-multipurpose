@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Admin\User\ListUser;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Livewire\Admin\Appointment\ListAppointment;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,9 @@ use App\Http\Controllers\Admin\DashboardController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::group(['prefix' => 'admin'], function(){
+    Route::get('/dashboard', DashboardController::class)->name('admin.dashboard');
+    Route::get('/users', ListUser::class)->name('admin.user');
+    Route::get('/appointment', ListAppointment::class)->name('admin.appointment');
+});
 
-Route::get('admin/dashboard', DashboardController::class)->name('admin.dashboard');
-Route::get('users', ListUser::class)->name('admin.user');
