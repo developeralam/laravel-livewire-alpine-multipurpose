@@ -1,16 +1,11 @@
 <?php
 
 namespace App\Http\Livewire\Admin\User;
-
 use App\Models\User;
-use Livewire\Component;
-use Livewire\WithPagination;
-use Illuminate\Support\Facades\Validator;
+use App\Http\Livewire\Admin\AdminComponent;
 
-class ListUser extends Component
+class ListUser extends AdminComponent
 {
-    use WithPagination;
-    protected $paginationTheme = 'bootstrap';
     public $state = [];
     public $showEditModal = false;
     public $user;
