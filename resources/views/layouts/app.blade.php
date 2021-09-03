@@ -89,51 +89,66 @@ scratch. This page gets rid of all links and provides the needed markup only.
         {{-- Toastr --}}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js
 "></script>
-        @livewireScripts
-        <script>
-            $(document).ready(function () {
-                //Show Form
-                window.addEventListener("show-form", (event) => {
-                    $("#" + event.detail.id).modal("show");
-                });
-                //Close form
-                window.addEventListener("close-form", (event) => {
-                    $("#" + event.detail.id).modal("hide");
-                });
-
-                //Toastr
-                toastr.options = {
-                    closeButton: true,
-                    progressBar: true,
-                    positionClass: "toast-top-right",
-                };
-                //Success Message
-                window.addEventListener("success-msg", (event) => {
-                    toastr.success(event.detail.msg, "Success!");
-                });
-
-
-                // Tempusdominus
-                $('#datetimepicker4').datetimepicker({
-                format: 'L'
-                });
-
-                $('#datetimepicker3').datetimepicker({
-                format: 'LT'
-                });
-
-                //setup date time picker
-                $("#datetimepicker4").on("change.datetimepicker", function(e){
-                    let date = $(this).data('appointmentdate');
-                    eval(date).set('state.date', $('#appointmentDateInput').val());
-                });
-                $('#datetimepicker3').on("change.datetimepicker", function(e){
-                    let time = $(this).data('appointmenttime');
-                    eval(time).set('state.time', $('#appointmentTimeInput').val());
-                })
-
-                
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor5/29.2.0/ckeditor.min.js"
+    integrity="sha512-wwT0JJH+SBiBr/tGqYtpnYLSMOpDt3fLdY1XHWyGSN7YWPnmdz/CoSYUa+ystmwqnb07QvtslyRjciQ9uIhVkg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function () {
+            //Show Form
+            window.addEventListener("show-form", (event) => {
+                $("#" + event.detail.id).modal("show");
             });
+            //Close form
+            window.addEventListener("close-form", (event) => {
+                $("#" + event.detail.id).modal("hide");
+            });
+            
+            //Toastr
+            toastr.options = {
+                closeButton: true,
+                progressBar: true,
+                positionClass: "toast-top-right",
+            };
+            //Success Message
+            window.addEventListener("success-msg", (event) => {
+                toastr.success(event.detail.msg, "Success!");
+            });
+            
+            
+            // Tempusdominus
+            $('#datetimepicker4').datetimepicker({
+                format: 'L'
+            });
+            
+            $('#datetimepicker3').datetimepicker({
+                format: 'LT'
+            });
+            
+            //setup date time picker
+            $("#datetimepicker4").on("change.datetimepicker", function(e){
+                let date = $(this).data('appointmentdate');
+                eval(date).set('state.date', $('#appointmentDateInput').val());
+            });
+            $('#datetimepicker3').on("change.datetimepicker", function(e){
+                let time = $(this).data('appointmenttime');
+                eval(time).set('state.time', $('#appointmentTimeInput').val());
+            });
+
+        });
+        //Ckeditor
+        ClassicEditor
+        .create( document.querySelector( '#note' ) );
+        .then(editor => {
+            document.querySelector('#submit').addEventListener('click', () =>{
+                let note = $('#note').data('note');
+                eval(note).set('state.note', editor.getData());
+            });
+        });
+        .catch( error => {
+        console.error( error );
+        } );
+        
         </script>
+    @livewireScripts
     </body>
 </html>

@@ -20,6 +20,7 @@ class ListAppointment extends AdminComponent
     //Add
     public function createAppointment()
     {
+        dd($this->state);
         $data = Validator::make($this->state, [
             'client_id' => 'required',
             'date' => 'required',

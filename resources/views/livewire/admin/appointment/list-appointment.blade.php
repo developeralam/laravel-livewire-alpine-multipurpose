@@ -120,7 +120,7 @@
                         </div>
                         <div class="form-group">
                             <label for="note">Note</label>
-                            <textarea wire:model.defer="state.note" id="note" class="form-control" cols="30" rows="4"></textarea>
+                            <textarea data-note="@this" wire:model.defer="state.note" id="note" class="form-control" cols="30" rows="4"></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -132,7 +132,7 @@
                             <i class="fa fa-times mr-1"></i>
                             Cancel
                         </button>
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" id="submit" class="btn btn-primary">
                             <i class="fa fa-save mr-1"></i>
                             {{ $showEditModal == true ? "Update" : "Save" }}
                         </button>
