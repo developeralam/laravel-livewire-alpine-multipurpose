@@ -11,6 +11,7 @@ use App\Http\Livewire\Admin\AdminComponent;
 class ListAppointment extends AdminComponent
 {
     public $state = [];
+    public $message;
     public $showEditModal = false;
     //Add Modal show
     public function addAppointment()

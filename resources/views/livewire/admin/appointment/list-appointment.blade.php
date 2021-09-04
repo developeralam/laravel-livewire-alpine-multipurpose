@@ -2,7 +2,7 @@
     @section('title', ' - Appointment')
     <div class="content-header">
         <div class="container-fluid">
-            <div class="row mb-2">
+            <div class="mb-2 row">
                 <div class="col-sm-6">
                     <h1 class="m-0">Appointment</h1>
                 </div>
@@ -23,7 +23,7 @@
     </div>
     <div class="content">
         <div class="container-fluid">
-            <div class="d-flex justify-content-end mb-2">
+            <div class="mb-2 d-flex justify-content-end">
                 <button class="btn btn-primary" wire:click.prevent="addAppointment">
                     <i class="fa fa-plus-circle"></i> Add new Appointment
                 </button>
@@ -87,9 +87,7 @@
                     </button>
                 </div>
                 <form
-                    wire:submit.prevent="{{
-                        $showEditModal == true ? 'updateUser' : 'createAppointment'
-                    }}"
+                    wire:submit.prevent="createAppointment"
                 >
                     <div class="modal-body">
                         <div class="form-group">
@@ -120,7 +118,7 @@
                         </div>
                         <div class="form-group">
                             <label for="note">Note</label>
-                            <textarea data-note="@this" wire:model.defer="state.note" id="note" class="form-control" cols="30" rows="4"></textarea>
+                            <textarea id="note" class="form-control required"></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -129,11 +127,11 @@
                             class="btn btn-secondary"
                             data-dismiss="modal"
                         >
-                            <i class="fa fa-times mr-1"></i>
+                            <i class="mr-1 fa fa-times"></i>
                             Cancel
                         </button>
                         <button type="submit" id="submit" class="btn btn-primary">
-                            <i class="fa fa-save mr-1"></i>
+                            <i class="mr-1 fa fa-save"></i>
                             {{ $showEditModal == true ? "Update" : "Save" }}
                         </button>
                     </div>
@@ -166,7 +164,7 @@
                         class="btn btn-secondary"
                         data-dismiss="modal"
                     >
-                        <i class="fa fa-times mr-1"></i>
+                        <i class="mr-1 fa fa-times"></i>
                         Cancel
                     </button>
                     <button
@@ -174,7 +172,7 @@
                         wire:click.prevent="deleteUser"
                         class="btn btn-primary"
                     >
-                        <i class="fa fa-save mr-1"></i>
+                        <i class="mr-1 fa fa-save"></i>
                         Delete
                     </button>
                 </div>

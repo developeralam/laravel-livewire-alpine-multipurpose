@@ -89,9 +89,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
         {{-- Toastr --}}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js
 "></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor5/29.2.0/ckeditor.min.js"
-    integrity="sha512-wwT0JJH+SBiBr/tGqYtpnYLSMOpDt3fLdY1XHWyGSN7YWPnmdz/CoSYUa+ystmwqnb07QvtslyRjciQ9uIhVkg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         $(document).ready(function () {
             //Show Form
@@ -135,19 +132,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
             });
 
         });
-        //Ckeditor
-        ClassicEditor
-        .create( document.querySelector( '#note' ) );
-        .then(editor => {
-            document.querySelector('#submit').addEventListener('click', () =>{
-                let note = $('#note').data('note');
-                eval(note).set('state.note', editor.getData());
-            });
-        });
+        </script>
+        <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>
+        <script>
+           ClassicEditor
+        .create( document.querySelector( '#note' ) )
+        .then( editor => {
+        console.log( editor );
+        } )
         .catch( error => {
         console.error( error );
         } );
-        
         </script>
     @livewireScripts
     </body>
