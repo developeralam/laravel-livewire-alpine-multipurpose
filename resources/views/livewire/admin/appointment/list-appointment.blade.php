@@ -117,8 +117,9 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="note">Note</label>
-                            <textarea id="note" class="form-control required"></textarea>
+                            <label for="editor">Note</label>
+                            <input type="text" wire:model.defer="state.note" id="editor">
+                            <trix-editor input="editor" id="test"></trix-editor>
                         </div>
                     </div>
                     <div class="modal-footer">

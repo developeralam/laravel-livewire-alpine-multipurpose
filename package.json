@@ -11,8 +11,12 @@
     },
     "devDependencies": {
         "axios": "^0.21",
-        "laravel-mix": "^6.0.6",
+        "laravel-mix": "^6.0.29",
         "lodash": "^4.17.19",
-        "postcss": "^8.1.14"
+        "postcss": "^8.1.14",
+        "webpack-cli": "^4.8.0"
+    },
+    "dependencies": {
+        "@ckeditor/ckeditor5-build-classic": "^29.2.0"
     }
 }

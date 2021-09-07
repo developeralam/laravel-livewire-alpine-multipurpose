@@ -11,7 +11,6 @@ use App\Http\Livewire\Admin\AdminComponent;
 class ListAppointment extends AdminComponent
 {
     public $state = [];
-    public $message;
     public $showEditModal = false;
     //Add Modal show
     public function addAppointment()
@@ -22,6 +21,11 @@ class ListAppointment extends AdminComponent
     public function createAppointment()
     {
         dd($this->state);
+
+
+
+
+
         $data = Validator::make($this->state, [
             'client_id' => 'required',
             'date' => 'required',
