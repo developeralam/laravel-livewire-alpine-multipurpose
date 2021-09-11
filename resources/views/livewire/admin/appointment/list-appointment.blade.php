@@ -116,10 +116,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" wire:ignore>
                             <label for="editor">Note</label>
-                            <input type="text" wire:model.defer="state.note" id="editor">
-                            <trix-editor input="editor" id="test"></trix-editor>
+                            <trix-editor wire:model.defer="state.note" >
+                            </trix-editor>
                         </div>
                     </div>
                     <div class="modal-footer">

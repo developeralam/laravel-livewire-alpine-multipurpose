@@ -93,7 +93,7 @@
     integrity="sha512-2RLMQRNr+D47nbLnsbEqtEmgKy67OSCpWJjJM394czt99xj3jJJJBQ43K7lJpfYAYtvekeyzqfZTx2mqoDh7vg=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
-    console.log('$("#test").val()');
+    console.log($("#test").val());
 </script>
     <script>
         $(document).ready(function () {
