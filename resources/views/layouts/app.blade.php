@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -28,12 +24,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
             rel="stylesheet"
             href="{{ asset('backend/dist/css/adminlte.min.css') }}"
         />
+        
         {{-- Toastr --}}
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
         />
+<<<<<<< HEAD
         <script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script>
+=======
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.css"
+            integrity="sha512-5m1IeUDKtuFGvfgz32VVD0Jd/ySGX7xdLxhqemTmThxHdgqlgPdupWoSN8ThtUSLpAGBvA8DY2oO7jJCrGdxoA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+>>>>>>> f09b6a47968621c9c8b11abf3b9d7e9861cd0efb
         @livewireStyles
     </head>
 
@@ -90,6 +93,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
         {{-- Toastr --}}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js
 "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.js"
+    integrity="sha512-2RLMQRNr+D47nbLnsbEqtEmgKy67OSCpWJjJM394czt99xj3jJJJBQ43K7lJpfYAYtvekeyzqfZTx2mqoDh7vg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    console.log($("#test").val());
+</script>
     <script>
         $(document).ready(function () {
             //Show Form
@@ -134,6 +143,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         });
         </script>
+<<<<<<< HEAD
         <script src="{{asset('js/admin.js')}}"></script>
         <script>
            ClassicEditor
@@ -161,4 +171,8 @@ $("#submit").click(function(){
         </script>
     @livewireScripts
     </body>
+=======
+        @livewireScripts
+</body>
+>>>>>>> f09b6a47968621c9c8b11abf3b9d7e9861cd0efb
 </html>

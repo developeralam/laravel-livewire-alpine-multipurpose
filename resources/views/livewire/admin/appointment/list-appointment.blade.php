@@ -114,10 +114,17 @@
                                 </div>
                             </div>
                         </div>
+<<<<<<< HEAD
                         <div class="form-group fgdfgfdfgd" wire:ignore>
                             <label for="note">Note</label>
                             <input type="hide" wire:model.defer="state.note" id="textarea">
                             <textarea id="note" class="form-control"></textarea>
+=======
+                        <div class="form-group" wire:ignore>
+                            <label for="editor">Note</label>
+                            <trix-editor wire:model.defer="state.note" >
+                            </trix-editor>
+>>>>>>> f09b6a47968621c9c8b11abf3b9d7e9861cd0efb
                         </div>
                     </div>
                     <div class="modal-footer">
