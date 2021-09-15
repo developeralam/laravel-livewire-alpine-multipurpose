@@ -33,6 +33,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
         />
+        <script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script>
         @livewireStyles
     </head>
 
@@ -133,16 +134,30 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         });
         </script>
-        <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>
+        <script src="{{asset('js/admin.js')}}"></script>
         <script>
            ClassicEditor
-        .create( document.querySelector( '#note' ) )
-        .then( editor => {
-        console.log( editor );
-        } )
-        .catch( error => {
-        console.error( error );
-        } );
+                                .create( document.querySelector( '#note' ) )
+                                .then( editor => {
+                                        console.log( editor );
+                                } )
+                                .catch( error => {
+                                        console.error( error );
+                                } )
+                                $(".ck-content").keypress( function(){
+                                    alert('done');
+                                })
+// $(".dk-content").keypress(function(){
+//     var da = $(".ck-content").html();
+//     console.log(da);
+// });
+$("#submit").click(function(){
+    var element = document.getElementById('textarea');
+    element.dispatchEvent(new Event('input'));
+    var data = $(".ck-content").html();
+    $("#textarea").val(data);
+});
+            
         </script>
     @livewireScripts
     </body>

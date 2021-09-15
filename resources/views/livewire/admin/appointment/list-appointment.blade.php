@@ -86,9 +86,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form
-                    wire:submit.prevent="createAppointment"
-                >
+                <form>
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="client_id">Client</label>
@@ -116,9 +114,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group fgdfgfdfgd" wire:ignore>
                             <label for="note">Note</label>
-                            <textarea id="note" class="form-control required"></textarea>
+                            <input type="hide" wire:model.defer="state.note" id="textarea">
+                            <textarea id="note" class="form-control"></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -130,10 +129,7 @@
                             <i class="mr-1 fa fa-times"></i>
                             Cancel
                         </button>
-                        <button type="submit" id="submit" class="btn btn-primary">
-                            <i class="mr-1 fa fa-save"></i>
-                            {{ $showEditModal == true ? "Update" : "Save" }}
-                        </button>
+                        <button wire:click.prevent="createAppointment" id="submit" class="btn btn-primary">Save</button>
                     </div>
                 </form>
             </div>
