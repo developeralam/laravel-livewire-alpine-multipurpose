@@ -30,32 +30,26 @@
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
         />
-<<<<<<< HEAD
-        <script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script>
-=======
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.css"
-            integrity="sha512-5m1IeUDKtuFGvfgz32VVD0Jd/ySGX7xdLxhqemTmThxHdgqlgPdupWoSN8ThtUSLpAGBvA8DY2oO7jJCrGdxoA=="
-            crossorigin="anonymous" referrerpolicy="no-referrer" />
->>>>>>> f09b6a47968621c9c8b11abf3b9d7e9861cd0efb
+
         @livewireStyles
     </head>
-
+    
     <body class="hold-transition sidebar-mini">
         <div class="wrapper">
             <div class="dj"></div>
             <!-- Navbar -->
             @include('layouts.partials.navbar')
             <!-- /.navbar -->
-
+            
             <!-- Main Sidebar Container -->
             @include('layouts.partials.aside')
-
+            
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
                 {{ $slot }}
             </div>
             <!-- /.content-wrapper -->
-
+            
             <!-- Control Sidebar -->
             <aside class="control-sidebar control-sidebar-dark">
                 <!-- Control sidebar content goes here -->
@@ -70,40 +64,29 @@
             @include('layouts.partials.footer')
         </div>
         <!-- ./wrapper -->
-
+        
         <!-- REQUIRED SCRIPTS -->
-
+        
         <!-- jQuery -->
-        <script src="{{
-                asset('backend/plugins/jquery/jquery.min.js')
-            }}"></script>
+        <script src="{{asset('backend/plugins/jquery/jquery.min.js')}}"></script>
         <!-- Bootstrap 4 -->
-        <script src="{{
-                asset('backend/plugins/bootstrap/js/bootstrap.bundle.min.js')
-            }}"></script>
-            <!-- Moment js -->
-            <script src="{{
-                                        asset('backend/plugins/moment/moment.min.js')
-                                    }}"></script>
-            <!-- Date Time picker 4 -->
-            <script src="{{asset('backend/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')
+        <script src="{{asset('backend/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+        <!-- Moment js -->
+        <script src="{{asset('backend/plugins/moment/moment.min.js')}}"></script>
+        <!-- Date Time picker 4 -->
+        <script src="{{asset('backend/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')
                         }}"></script>
         <!-- AdminLTE App -->
         <script src="{{ asset('backend/dist/js/adminlte.min.js') }}"></script>
         {{-- Toastr --}}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js
-"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.js"
-    integrity="sha512-2RLMQRNr+D47nbLnsbEqtEmgKy67OSCpWJjJM394czt99xj3jJJJBQ43K7lJpfYAYtvekeyzqfZTx2mqoDh7vg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script>
-    console.log($("#test").val());
-</script>
-    <script>
-        $(document).ready(function () {
-            //Show Form
-            window.addEventListener("show-form", (event) => {
-                $("#" + event.detail.id).modal("show");
+        "></script>
+        <script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script>
+        <script>
+            $(document).ready(function () {
+                //Show Form
+                window.addEventListener("show-form", (event) => {
+                    $("#" + event.detail.id).modal("show");
             });
             //Close form
             window.addEventListener("close-form", (event) => {
@@ -142,37 +125,9 @@
             });
 
         });
-        </script>
-<<<<<<< HEAD
-        <script src="{{asset('js/admin.js')}}"></script>
-        <script>
-           ClassicEditor
-                                .create( document.querySelector( '#note' ) )
-                                .then( editor => {
-                                        console.log( editor );
-                                } )
-                                .catch( error => {
-                                        console.error( error );
-                                } )
-                                $(".ck-content").keypress( function(){
-                                    alert('done');
-                                })
-// $(".dk-content").keypress(function(){
-//     var da = $(".ck-content").html();
-//     console.log(da);
-// });
-$("#submit").click(function(){
-    var element = document.getElementById('textarea');
-    element.dispatchEvent(new Event('input'));
-    var data = $(".ck-content").html();
-    $("#textarea").val(data);
-});
-            
-        </script>
+    </script>
+    @stack('js')
     @livewireScripts
     </body>
-=======
-        @livewireScripts
 </body>
->>>>>>> f09b6a47968621c9c8b11abf3b9d7e9861cd0efb
 </html>

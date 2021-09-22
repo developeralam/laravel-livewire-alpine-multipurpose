@@ -114,17 +114,12 @@
                                 </div>
                             </div>
                         </div>
-<<<<<<< HEAD
-                        <div class="form-group fgdfgfdfgd" wire:ignore>
-                            <label for="note">Note</label>
-                            <input type="hide" wire:model.defer="state.note" id="textarea">
-                            <textarea id="note" class="form-control"></textarea>
-=======
+
                         <div class="form-group" wire:ignore>
-                            <label for="editor">Note</label>
-                            <trix-editor wire:model.defer="state.note" >
-                            </trix-editor>
->>>>>>> f09b6a47968621c9c8b11abf3b9d7e9861cd0efb
+                            <label for="note">Note</label>
+                            {{-- <input type="hidden" wire:model.defer="state.note" id="textarea"> --}}
+                            {{-- <input type="text" id="note" class="form-control"> --}}
+                            <textarea id="note" data-note="@this" cols="30" rows="10" class="form-control"></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -183,3 +178,24 @@
         </div>
     </div>
 </div>
+@push('js')
+<script>
+    ClassicEditor
+     .create( document.querySelector( '#note' ) )
+     .then( editor => {
+        document.querySelector( '#submit').addEventListener( 'click', () => { 
+            let note = $("#note").data('note');
+            eval(note).set('state.note', editor.getData());
+        });
+    })
+     .catch( error => {
+             console.error( error );
+    })
+    // $("#submit").click(()=>{
+    //     let element = document.getElementById('textarea');
+    //     element.dispatchEvent(new Event('input'));
+    //     let data = $(".ck-content").html();
+    //     $("#textarea").val(data); 
+    // })
+ </script>
+@endpush
