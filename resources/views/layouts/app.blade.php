@@ -30,7 +30,8 @@
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
         />
-
+        <script defer src="https://unpkg.com/alpinejs@3.4.1/dist/cdn.min.js"></script>
+        @stack('styles')
         @livewireStyles
     </head>
     
@@ -82,6 +83,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js
         "></script>
         <script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script>
+        <x-confirmation-alert />
         <script>
             $(document).ready(function () {
                 //Show Form
@@ -102,26 +104,6 @@
             //Success Message
             window.addEventListener("success-msg", (event) => {
                 toastr.success(event.detail.msg, "Success!");
-            });
-            
-            
-            // Tempusdominus
-            $('#datetimepicker4').datetimepicker({
-                format: 'L'
-            });
-            
-            $('#datetimepicker3').datetimepicker({
-                format: 'LT'
-            });
-            
-            //setup date time picker
-            $("#datetimepicker4").on("change.datetimepicker", function(e){
-                let date = $(this).data('appointmentdate');
-                eval(date).set('state.date', $('#appointmentDateInput').val());
-            });
-            $('#datetimepicker3').on("change.datetimepicker", function(e){
-                let time = $(this).data('appointmenttime');
-                eval(time).set('state.time', $('#appointmentTimeInput').val());
             });
 
         });

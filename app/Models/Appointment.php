@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Client;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Appointment extends Model
 {
@@ -13,4 +14,16 @@ class Appointment extends Model
         'date' => 'datetime',
         'time' => 'datetime',
     ];
+    public function client()
+    {
+        return $this->belongsTo(Client::class, 'client_id');
+    }
+    public function getStatusBadgeAttribute()
+    {
+        $badges = [
+            'secduled' => 'primary',
+            'closed' => 'success',
+        ];
+        return $badges[$this->status];
+    }
 }
